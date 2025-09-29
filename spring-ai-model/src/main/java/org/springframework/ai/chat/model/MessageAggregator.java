@@ -54,6 +54,10 @@ public class MessageAggregator {
 
 	private static final Logger logger = LoggerFactory.getLogger(MessageAggregator.class);
 
+	public Mono<ChatResponse> aggregate(Flux<ChatResponse> fluxChatResponse) {
+		return fluxChatResponse.last();  // dummy
+	}
+
 	public Flux<ChatResponse> aggregate(Flux<ChatResponse> fluxChatResponse,
 			Consumer<ChatResponse> onAggregationComplete) {
 
